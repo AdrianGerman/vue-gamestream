@@ -1,6 +1,7 @@
 <script setup>
 import LayoutHero from './components/Layout/LayoutHero.vue'
 import GameCard from './components/Games/GameCard.vue'
+import GameLayout from './components/Games/GameLayout.vue'
 
 import { onMounted, reactive } from 'vue'
 
@@ -33,7 +34,12 @@ onMounted(() => {
 
 <template>
   <LayoutHero />
-  <GameCard v-for="game in state.data" :key="game.title" :game="game" />
+  <GameLayout>
+    <template #title>
+      <h3>Juegos actualizados</h3>
+    </template>
+    <GameCard v-for="game in state.data" :key="game.title" :game="game" />
+  </GameLayout>
   <main></main>
 </template>
 
