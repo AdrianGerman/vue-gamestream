@@ -1,19 +1,11 @@
 <script setup>
 import IconSearch from '../Icons/IconSearch.vue'
-
 </script>
 
 <template>
-  <form @submit="onSearch">
-    <div class="search" :class="classes">
-      <input
-        class="search__input"
-        v-model="model"
-        @focus="onFocus"
-        @blur="onBlur"
-        type="text"
-        placeholder="Buscar"
-      />
+  <form>
+    <div class="search" :class="classes" v-bind="$attrs">
+      <input class="search__input" type="text" placeholder="Buscar" />
       <button class="search__submit" type="submit">
         <IconSearch />
       </button>
