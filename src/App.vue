@@ -2,6 +2,7 @@
 import LayoutHero from './components/Layout/LayoutHero.vue'
 import GameCard from './components/Games/GameCard.vue'
 import GameLayout from './components/Games/GameLayout.vue'
+import GameModal from './components/Games/GameModal.vue'
 
 import { onMounted, reactive, ref } from 'vue'
 
@@ -41,12 +42,15 @@ const setGameView = (filteredGames) => {
 
 <template>
   <LayoutHero />
-  <GameLayout :games="state.data" @set-game-view="setGameView">
-    <template #title>
-      <h3>Juegos actualizados</h3>
-    </template>
-    <GameCard v-for="game in gamesView" :key="game.title" :game="game" />
-  </GameLayout>
+  <main>
+    <GameLayout :games="state.data" @set-game-view="setGameView">
+      <template #title>
+        <h3>Juegos actualizados</h3>
+      </template>
+      <GameCard v-for="game in gamesView" :key="game.title" :game="game" />
+    </GameLayout>
+    <GameModal />
+  </main>
   <main></main>
 </template>
 
