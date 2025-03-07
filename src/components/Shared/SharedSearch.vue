@@ -3,6 +3,8 @@ import { ref, computed } from 'vue'
 import IconSearch from '../Icons/IconSearch.vue'
 
 const model = defineModel()
+const emit = defineEmits(['search'])
+
 const isActive = ref(false)
 
 const onFocus = () => {
@@ -17,7 +19,13 @@ const searchClasses = computed(() => ({ 'search--active': isActive.value }))
 </script>
 
 <template>
-  <form>
+  <form
+    @submit.prevent="
+      () => {
+        emit('search')
+      }
+    "
+  >
     <div class="search" :class="searchClasses">
       <input
         v-model="model"
