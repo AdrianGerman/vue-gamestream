@@ -43,6 +43,6 @@ const onSearch = () => {
   display: grid;
   gap: 2rem;
   margin: 1rem auto;
-  max-width: 90%;
+  max-width: 70%;
 }
 </style>
